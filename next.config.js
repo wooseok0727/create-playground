@@ -4,16 +4,13 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
-  reactStrictMode: false,
   i18n: {
     locales: ['ko'],
     defaultLocale: 'ko',
   },
-
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+  compiler: {
+    styledComponents: true,
   },
-
   webpack: config => {
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
