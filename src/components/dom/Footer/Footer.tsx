@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const Footer = (props: Props) => {
-  const { repoHref = 'https://github.com/wooseok0727/create-playground' } = props;
+  const { repoHref = 'https://github.com/wooseok0727' } = props;
 
   return (
     <>
