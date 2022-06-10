@@ -10,7 +10,7 @@ export interface HeadProps {
 export const Head = (props: HeadProps) => {
   const {
     title = 'PlayGround 2022',
-    description = 'JOJO playground 2022 WebGL & GLSL',
+    description = 'JOJO playGround 2022 WebGL | GLSL',
     ogImage = '/images/og.jpg',
   } = props;
 

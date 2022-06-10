@@ -11,6 +11,8 @@
   "dependencies": {
     "@react-three/drei": "^9.13.0",
     "@react-three/fiber": "^8.0.22",
+    "gsap": "^3.10.4",
+    "lil-gui": "^0.16.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",

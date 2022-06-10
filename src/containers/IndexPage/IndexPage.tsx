@@ -1,4 +1,4 @@
-import { useUiStore } from 'store/store';
+import { useUIStore } from 'store';
 import { useEffect } from 'react';
 import Link from 'next/link';
 
@@ -7,11 +7,11 @@ import { Head } from 'seo/Head/Head';
 import * as S from './IndexPage.styles';
 
 export default function IndexPage() {
-  const hasVistedLanding = useUiStore(s => s.hasVistedLanding);
+  const hasVistedLanding = useUIStore(s => s.hasVistedLanding);
 
   useEffect(() => {
     if (hasVistedLanding) return;
-    useUiStore.setState({ hasVistedLanding: true });
+    useUIStore.setState({ hasVistedLanding: true });
   }, [hasVistedLanding]);
 
   return (
@@ -20,13 +20,8 @@ export default function IndexPage() {
       <S.Wrapper>
         <S.ProjectsWrapper>
           <S.ProjectContainer>
-            <Link href="/projects/1" passHref>
-              <S.ProjectLink>1. one</S.ProjectLink>
-            </Link>
-          </S.ProjectContainer>
-          <S.ProjectContainer>
-            <Link href="/projects/2" passHref>
-              <S.ProjectLink>2. two</S.ProjectLink>
+            <Link href="/projects/blob" passHref>
+              <S.ProjectLink>1. Blob</S.ProjectLink>
             </Link>
           </S.ProjectContainer>
         </S.ProjectsWrapper>
@@ -34,3 +29,5 @@ export default function IndexPage() {
     </>
   );
 }
+
+IndexPage.r3f = () => null;

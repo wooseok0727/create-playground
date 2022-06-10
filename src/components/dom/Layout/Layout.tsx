@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-import { useUiStore } from 'store/store';
+import { useUIStore } from 'store';
 import { Footer } from '../Footer/Footer';
 
 import * as S from './Layout.styles';
@@ -15,7 +15,7 @@ interface Props {
 export const Layout = (props: Props) => {
   const { isReady, children, repoHref } = props;
   const router = useRouter();
-  const hasVisitedLanding = useUiStore(s => s.hasVistedLanding);
+  const hasVisitedLanding = useUIStore(s => s.hasVistedLanding);
 
   useEffect(() => {
     if (isReady && !document.body.classList.contains('isReady')) {

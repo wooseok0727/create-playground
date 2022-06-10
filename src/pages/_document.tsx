@@ -1,5 +1,12 @@
 import React, { Fragment } from 'react';
-import NextDocument, { Head, Main, NextScript, DocumentContext, Html, DocumentInitialProps } from 'next/document';
+import NextDocument, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  Html,
+  DocumentInitialProps,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class Document extends NextDocument {
@@ -34,7 +41,10 @@ export default class Document extends NextDocument {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link href="https://fonts.googleapis.com/css2?family=Homenaje&display=swap" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Homenaje&display=swap"
+            rel="stylesheet"
+          />
 
           <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
         </Head>

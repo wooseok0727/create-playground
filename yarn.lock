@@ -2135,6 +2135,11 @@ graceful-fs@^4.1.2:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
 
+gsap@^3.10.4:
+  version "3.10.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.10.4.tgz#db89a6b8f6d5cb76e274eae822cbc1aa4d31e88f"
+  integrity sha512-6QatdkKxXCMfvCW4rM++0RqyLQAzFX5nwl3yHS0XPgkZBkiSEY3VZVbMltrdtsbER/xZonLtyHt684wRp4erlQ==
+
 gts@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/gts/-/gts-3.1.0.tgz#b27ce914191ed6ad34781968d0c77e0ed3042388"
@@ -2622,6 +2627,11 @@ levn@^0.4.1:
   dependencies:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
+
+lil-gui@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/lil-gui/-/lil-gui-0.16.1.tgz#fe3a7eb20eea3fa6bc752b8caae96f2a385e8323"
+  integrity sha512-6wnnfBvQxJYRhdLyIA+w5b8utwbuVxNmtpTXElm36OSgHa8lyKp00Xz/4AEx3kvodT0AJYgbfadCFWAM0Q8DgQ==
 
 lines-and-columns@^1.1.6:
   version "1.2.4"
