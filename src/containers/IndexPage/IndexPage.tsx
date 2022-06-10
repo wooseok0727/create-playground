@@ -30,4 +30,4 @@ export default function IndexPage() {
   );
 }
 
-IndexPage.r3f = () => null;
+IndexPage.r3f = <></>;

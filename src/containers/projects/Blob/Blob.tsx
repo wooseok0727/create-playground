@@ -23,7 +23,7 @@ export default function Blob(props: PageProps) {
   );
 }
 
-Blob.r3f = () => (
+Blob.r3f = (
   <>
     <BlobSphere3D />
     <Sphere3D />

@@ -8,5 +8,5 @@ export interface PageProps {
 }
 
 export type PageWithR3F = NextComponentType & {
-  r3f: () => React.ReactNode;
+  r3f: React.ReactNode;
 };

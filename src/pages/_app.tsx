@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <Layout isReady={isReady} repoHref={(pageProps as PageProps).repoHref}>
         <Component router={router} {...pageProps} />
-        <LCanvas>{(Component as PageWithR3F).r3f()}</LCanvas>
+        <LCanvas>{(Component as PageWithR3F).r3f}</LCanvas>
       </Layout>
     </>
   );
