@@ -59,7 +59,8 @@ export const Vaporwave3D = () => {
 
   useEffect(() => {
     camera.position.set(0, 0.06, 1.1);
-  }, [camera.position]);
+    camera.rotation.set(0, 0, 0);
+  }, [camera.position, camera.rotation]);
 
   return (
     <>
