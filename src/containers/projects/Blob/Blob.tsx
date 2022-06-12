@@ -4,8 +4,8 @@ import { PageProps } from 'utils/sharedTypes';
 import * as S from './Blob.styles';
 import { useUIStore } from 'store';
 import { useEffect } from 'react';
-import { BlobSphere3D } from 'components/canvas/blob/BlobSphere3D/BlobSphere3D';
-import { Sphere3D } from 'components/canvas/blob/Sphere3D/Sphere3D';
+import { BlobSphere3D } from 'components/canvas/Blob/BlobSphere3D/BlobSphere3D';
+import { Sphere3D } from 'components/canvas/Blob/Sphere3D/Sphere3D';
 
 export default function Blob(props: PageProps) {
   const { head } = props;
