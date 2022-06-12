@@ -21,7 +21,7 @@ export const BlobSphere3D = () => {
   const blobScale = useRef(1.4);
   const colorFactor = useRef(1);
   const [isBlobAnimated, setIsBlobAnimated] = useState(false);
-  const { size } = useThree();
+  const { size, camera } = useThree();
   const cubeRenderTarget = useMemo(
     () =>
       new WebGLCubeRenderTarget(256, {
@@ -112,6 +112,10 @@ export const BlobSphere3D = () => {
       }
     }
   }, [size, isBlobAnimated]);
+
+  useEffect(() => {
+    camera.position.set(0, 0, 900);
+  }, [camera.position]);
 
   return (
     <mesh ref={mesh}>

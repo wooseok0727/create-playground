@@ -1,6 +1,7 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
+import { useUIStore } from 'store';
 import { Camera } from '../Camera/Camera';
 import * as S from './LCanvs.styles';
 
@@ -13,6 +14,7 @@ type Frameloop = 'always' | 'demand' | 'never';
 export const LCanvas = (props: Props) => {
   const { children } = props;
   const [frameloop, setFrameloop] = useState<Frameloop>('always');
+  const orbitEnabled = useUIStore(s => s.orbitEnabled);
 
   const handleVisibilityChange = () => {
     if (document.hidden) {
@@ -35,7 +37,12 @@ export const LCanvas = (props: Props) => {
         resize={{ debounce: 300 }}
       >
         <Camera />
-        <OrbitControls enableDamping={true} enableZoom={false} enablePan={false} />
+        <OrbitControls
+          enableDamping={true}
+          enableZoom={false}
+          enablePan={false}
+          enabled={orbitEnabled}
+        />
         {children}
       </Canvas>
     </S.CanvasWrapper>
