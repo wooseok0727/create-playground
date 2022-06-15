@@ -23,8 +23,8 @@ export const LCanvas = (props: Props) => {
         {selectCamera === 'PCamera' ? <PCamera /> : <OCamera />}
         <OrbitControls
           enableDamping={true}
-          enableZoom={true}
-          enablePan={true}
+          enableZoom={false}
+          enablePan={false}
           enabled={orbitEnabled}
         />
         {children}
