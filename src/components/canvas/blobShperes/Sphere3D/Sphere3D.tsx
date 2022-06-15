@@ -1,23 +1,16 @@
 import vertexShader from './shader/sphere3D.vert';
 import fragmentShader from './shader/sphere3D.frag';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { BackSide, Mesh, ShaderMaterial, SphereGeometry } from 'three';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 
 export const Sphere3D = () => {
   const mesh = useRef<Mesh<SphereGeometry, ShaderMaterial> | null>(null);
-  const { size } = useThree();
   const backGround = useRef({
-    color1: [94 / 255, 224 / 255, 221 / 255],
-    color2: [106 / 255, 71 / 255, 199 / 255],
-    colorAccent: [166 / 255, 134 / 255, 247 / 255],
+    color1: [120 / 255, 158 / 255, 113 / 255],
+    color2: [224 / 255, 148 / 255, 66 / 255],
+    colorAccent: [0 / 255, 0 / 255, 0 / 255],
   });
-
-  const setSize = (size: number) => {
-    if (mesh.current) {
-      mesh.current.scale.set(size, size, size);
-    }
-  };
 
   useFrame((state, delta) => {
     if (mesh.current) {
@@ -25,13 +18,8 @@ export const Sphere3D = () => {
     }
   });
 
-  // camera Z 위치로 인해 1000 ( camera를 감싸야 하기 때문에 더 커야 함)
-  useEffect(() => {
-    setSize(1000);
-  }, [size]);
-
   return (
-    <mesh ref={mesh}>
+    <mesh ref={mesh} scale={1000}>
       <sphereGeometry args={[1, 32, 32]} />
       <shaderMaterial
         side={BackSide}
@@ -43,7 +31,6 @@ export const Sphere3D = () => {
           uColor2: { value: backGround.current.color2 },
           uColorAccent: { value: backGround.current.colorAccent },
         }}
-        wireframe={false}
       />
     </mesh>
   );

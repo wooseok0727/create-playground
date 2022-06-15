@@ -19,16 +19,15 @@ mat2 rotate2d(float angle){
                 sin(angle),cos(angle));
 }
 
-
 void main() {
     vec2 uv = vUv;
     float n = cnoise(vPosition + uTime * 0.1);
-    vec2 baseUv = rotate2d(PI * 0.25 + n) * vPosition.xy * 0.5;
+    vec2 baseUV = rotate2d(PI * 0.25 + n) * vPosition.xy * 0.5;
 
-    float basePattern = lines(baseUv, 1.0);
-    float secondPattern = lines(baseUv, 0.2);
+    float basePattern = lines(baseUV, 0.5);
+    float secondPattern = lines(baseUV, 0.1);
 
-    vec3 baseColor = mix(uColor1, uColor2, basePattern);
+    vec3 baseColor = mix(uColor2, uColor1, basePattern);
     vec3 secondBaseColor = mix(baseColor, uColorAccent, secondPattern);
     
     gl_FragColor = vec4(secondBaseColor, 1.0);

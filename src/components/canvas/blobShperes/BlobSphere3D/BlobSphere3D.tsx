@@ -18,8 +18,8 @@ import gsap, { Expo } from 'gsap';
 
 export const BlobSphere3D = () => {
   const mesh = useRef<Mesh<SphereGeometry, ShaderMaterial> | null>(null);
-  const blobScale = useRef(1.4);
-  const colorFactor = useRef(1);
+  const blobScale = useRef(0);
+
   const [isBlobAnimated, setIsBlobAnimated] = useState(false);
   const { size, camera } = useThree();
   const cubeRenderTarget = useMemo(
@@ -34,15 +34,20 @@ export const BlobSphere3D = () => {
   );
   const cubeCamera = useMemo(() => new CubeCamera(0.1, 1200, cubeRenderTarget), [cubeRenderTarget]);
 
+  const uniforms = useMemo(
+    () => ({
+      tCube: { value: cubeRenderTarget.texture },
+      mRefractionRatio: { value: 1.02 },
+      mFresnelBias: { value: 0.1 },
+      mFresnelScale: { value: 4.0 },
+      mFresnelPower: { value: 2.0 },
+    }),
+    [cubeRenderTarget]
+  );
+
   const setSize = (size: number) => {
     if (mesh.current) {
       mesh.current.scale.set(size, size, size);
-    }
-  };
-
-  const setColorFactor = (value: number) => {
-    if (mesh.current) {
-      mesh.current.material.uniforms.uColorFactor.value = value;
     }
   };
 
@@ -69,24 +74,8 @@ export const BlobSphere3D = () => {
     [isBlobAnimated]
   );
 
-  const animateColorFactor = useCallback(() => {
-    if (isBlobAnimated) return;
-    const obj = { value: 1 };
-    gsap.to(obj, {
-      value: 0,
-      duration: 2,
-      delay: 0.5,
-      ease: Expo.easeInOut,
-      onUpdate: () => {
-        colorFactor.current = obj.value;
-        setColorFactor(colorFactor.current);
-      },
-    });
-  }, [isBlobAnimated]);
-
-  useFrame((state, delta) => {
+  useFrame(state => {
     if (mesh.current) {
-      mesh.current.material.uniforms.uTime.value = delta * 0.001;
       mesh.current.visible = false;
       cubeCamera.update(state.gl, state.scene);
       mesh.current.visible = true;
@@ -95,8 +84,7 @@ export const BlobSphere3D = () => {
 
   useEffect(() => {
     animateScale(size.width);
-    animateColorFactor();
-  }, [animateScale, animateColorFactor, size.width]);
+  }, [animateScale, size.width]);
 
   useEffect(() => {
     if (!isBlobAnimated) {
@@ -123,15 +111,7 @@ export const BlobSphere3D = () => {
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
-        uniforms={{
-          uTime: { value: 0 },
-          uCubeTexture: { value: cubeRenderTarget.texture },
-          uColorFactor: { value: colorFactor.current },
-          uRefractionRatio: { value: 1.02 },
-          uFresnelBias: { value: 0.1 },
-          uFresnelScale: { value: 4.0 },
-          uFresnelPower: { value: 2.0 },
-        }}
+        uniforms={uniforms}
       />
     </mesh>
   );
