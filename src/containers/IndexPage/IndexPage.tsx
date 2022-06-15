@@ -25,6 +25,11 @@ export default function IndexPage() {
               <S.ProjectLink>1. Blob</S.ProjectLink>
             </Link>
           </S.ProjectContainer>
+          <S.ProjectContainer>
+            <Link href="/projects/ripples" passHref>
+              <S.ProjectLink>2. Ripples</S.ProjectLink>
+            </Link>
+          </S.ProjectContainer>
         </S.ProjectsWrapper>
       </S.Wrapper>
     </>

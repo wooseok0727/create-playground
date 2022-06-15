@@ -10,10 +10,10 @@ import { Effect } from 'components/canvas/blobShperes/Effect/Effect';
 
 export default function Blob(props: PageProps) {
   const { head } = props;
-  const shouldReveal = useUIStore(s => s.shouldReveal);
+  const shouldReveal = useUIStore(s => s.BlobShouldReveal);
 
   useEffect(() => {
-    useUIStore.setState({ shouldReveal: true });
+    useUIStore.setState({ BlobShouldReveal: true });
   }, []);
 
   useEffect(() => {

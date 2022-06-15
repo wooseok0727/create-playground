@@ -1,7 +1,7 @@
 import { PerspectiveCamera } from '@react-three/drei';
 import { useEffect, useState } from 'react';
 
-export const Camera = () => {
+export const PCamera = () => {
   const [height, setHeight] = useState(0);
 
   const handleResize = () => setHeight(window.innerHeight);

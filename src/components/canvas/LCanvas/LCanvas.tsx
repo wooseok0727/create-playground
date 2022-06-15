@@ -1,7 +1,8 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useUIStore } from 'store';
-import { Camera } from '../Camera/Camera';
+import { OCamera } from '../Camera/OCamera';
+import { PCamera } from '../Camera/PCamera';
 import * as S from './LCanvs.styles';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 export const LCanvas = (props: Props) => {
   const { children } = props;
   const orbitEnabled = useUIStore(s => s.orbitEnabled);
+  const selectCamera = useUIStore(s => s.selectCamera);
 
   return (
     <S.CanvasWrapper>
@@ -18,11 +20,11 @@ export const LCanvas = (props: Props) => {
         gl={{ powerPreference: 'default', alpha: true, antialias: true }}
         resize={{ debounce: 300 }}
       >
-        <Camera />
+        {selectCamera === 'PCamera' ? <PCamera /> : <OCamera />}
         <OrbitControls
           enableDamping={true}
-          enableZoom={false}
-          enablePan={false}
+          enableZoom={true}
+          enablePan={true}
           enabled={orbitEnabled}
         />
         {children}
