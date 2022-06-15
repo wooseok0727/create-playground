@@ -21,7 +21,7 @@ export const Sphere3D = () => {
 
   useFrame((state, delta) => {
     if (mesh.current) {
-      mesh.current.material.uniforms.uTime.value = delta * 0.001;
+      mesh.current.material.uniforms.uTime.value += delta;
     }
   });
 

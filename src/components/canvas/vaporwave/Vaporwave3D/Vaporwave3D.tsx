@@ -66,6 +66,7 @@ export const Vaporwave3D = () => {
     <>
       <fog attach="fog" args={[0xffffff, 1, 2.5]} />
       <Light />
+
       <group onPointerDown={onMouseDown} onPointerUp={onMouseUp} onPointerOut={onMouseUp}>
         <Terrain ref={terrain1Ref} z={0} displacement={displacement} />
         <Terrain ref={terrain2Ref} z={-2} displacement={displacement} />
