@@ -2,7 +2,6 @@ import { useTexture } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import gsap, { Linear } from 'gsap';
 import { useEffect, useRef } from 'react';
-import { useUIStore } from 'store';
 import type { Mesh, MeshStandardMaterial, PlaneGeometry } from 'three';
 import { Light } from '../Light/Light';
 import { Terrain } from '../Terrain/Terrain';
@@ -18,7 +17,6 @@ export const Vaporwave3D = () => {
   const { camera } = useThree();
 
   const displacement = useTexture('/images/displacement.png', () => {
-    useUIStore.setState({ isReady: true });
     animateOpacity();
   });
 

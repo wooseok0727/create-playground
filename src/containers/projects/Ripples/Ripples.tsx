@@ -15,9 +15,9 @@ export default function Ripples(props: PageProps) {
   }, []);
 
   useEffect(() => {
-    useUIStore.setState({ orbitEnabled: true, selectCamera: 'OCamera' });
+    useUIStore.setState({ selectCamera: 'OCamera' });
 
-    return () => useUIStore.setState({ orbitEnabled: false, selectCamera: 'PCamera' });
+    return () => useUIStore.setState({ selectCamera: 'PCamera' });
   }, []);
 
   return (
