@@ -21,13 +21,13 @@ export default function IndexPage() {
       <S.Wrapper>
         <S.ProjectsWrapper>
           <S.ProjectContainer>
-            <Link href="/projects/blob" passHref>
-              <S.ProjectLink>1. Blob</S.ProjectLink>
+            <Link href="/projects/ripples" passHref>
+              <S.ProjectLink>1. Ripples</S.ProjectLink>
             </Link>
           </S.ProjectContainer>
           <S.ProjectContainer>
-            <Link href="/projects/ripples" passHref>
-              <S.ProjectLink>2. Ripples</S.ProjectLink>
+            <Link href="/projects/blob" passHref>
+              <S.ProjectLink>2. Blob</S.ProjectLink>
             </Link>
           </S.ProjectContainer>
         </S.ProjectsWrapper>
