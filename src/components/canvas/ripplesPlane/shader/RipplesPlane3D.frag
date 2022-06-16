@@ -3,6 +3,7 @@ uniform sampler2D uVideo;
 uniform sampler2D uImage;
 uniform vec2 uViewport;
 uniform float uCircleScale;
+uniform float uSwirl;
 
 varying vec2 vUv;
 
@@ -102,7 +103,7 @@ void main() {
 
   /// ripples
   vec2 noiseUV = ( vUv  - vec2( 0.5 ) ) / vec2( uViewport.y / uViewport.x, 1.0 );
-  vec2 insideUV = newUV + 0.5 * centerVector * ( 2.0 - uCircleScale );
+
   noiseUV *= rot2d( uTime * 10.5 );
 
   float swirl = 10.0 * fbm( 
@@ -110,14 +111,14 @@ void main() {
   );
 
   noiseUV *= rot2d( -uTime * 4.5 );
-  vec2 swirlDistort = fbmLow( noiseUV * swirl ) * centerVector * 3.0;
+  vec2 swirlDistort = fbmLow( noiseUV * swirl ) * centerVector * 15.0;
 
 
   // end of ripples
 
   float circleProgress = circle( noiseUV, uCircleScale , 0.25 + 0.25 * uCircleScale );
-
-  vec2 backgroundUV = newUV + 0.1 * swirlDistort - centerVector * circleProgress - 0.5 * centerVector * uCircleScale;
+  vec2 insideUV = newUV + 0.5 * centerVector * ( 2.0 - uCircleScale );
+  vec2 backgroundUV = newUV + uSwirl * 0.1 * swirlDistort - centerVector * circleProgress - 0.5 * centerVector * uCircleScale;
 
   vec4 video = texture2D( uVideo, insideUV );
   vec4 image = texture2D( uImage, backgroundUV );
