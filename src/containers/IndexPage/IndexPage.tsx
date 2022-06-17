@@ -26,8 +26,13 @@ export default function IndexPage() {
             </Link>
           </S.ProjectContainer>
           <S.ProjectContainer>
+            <Link href="/projects/cubes" passHref>
+              <S.ProjectLink>2. Cubes</S.ProjectLink>
+            </Link>
+          </S.ProjectContainer>
+          <S.ProjectContainer>
             <Link href="/projects/blob" passHref>
-              <S.ProjectLink>2. Blob</S.ProjectLink>
+              <S.ProjectLink>3. Blob</S.ProjectLink>
             </Link>
           </S.ProjectContainer>
         </S.ProjectsWrapper>

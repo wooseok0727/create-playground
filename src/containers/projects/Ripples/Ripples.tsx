@@ -8,10 +8,10 @@ import { RipplesPlane3D } from 'components/canvas/ripplesPlane/RipplesPlane3D';
 
 export default function Ripples(props: PageProps) {
   const { head } = props;
-  const shouldReveal = useUIStore(s => s.RipplesShouldReveal);
+  const shouldReveal = useUIStore(s => s.ripplesShouldReveal);
 
   useEffect(() => {
-    useUIStore.setState({ RipplesShouldReveal: true });
+    useUIStore.setState({ ripplesShouldReveal: true });
   }, []);
 
   useEffect(() => {

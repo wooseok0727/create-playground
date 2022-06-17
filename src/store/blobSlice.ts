@@ -1,9 +1,9 @@
 import type { StoreSlice } from './index';
 
 interface BlobSlice {
-  BlobShouldReveal: boolean;
+  blobShouldReveal: boolean;
 }
 
 export const createBlobSlice: StoreSlice<BlobSlice> = () => ({
-  BlobShouldReveal: false,
+  blobShouldReveal: false,
 });

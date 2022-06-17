@@ -28,6 +28,7 @@ export const LCanvas = (props: Props) => {
           enabled={orbitEnabled}
         />
         {children}
+        {/* <Stats showPanel={0} /> */}
       </Canvas>
     </S.CanvasWrapper>
   );

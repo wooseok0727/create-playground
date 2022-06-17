@@ -1,9 +1,9 @@
 import type { StoreSlice } from './index';
 
 interface RipplesSlice {
-  RipplesShouldReveal: boolean;
+  ripplesShouldReveal: boolean;
 }
 
 export const createRipplesSlice: StoreSlice<RipplesSlice> = () => ({
-  RipplesShouldReveal: false,
+  ripplesShouldReveal: false,
 });

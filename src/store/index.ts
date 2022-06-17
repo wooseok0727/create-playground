@@ -3,6 +3,7 @@ import { subscribeWithSelector } from 'zustand/middleware';
 import { createMainSlice } from './mainSlice';
 import { createBlobSlice } from './blobSlice';
 import { createRipplesSlice } from './ripplesSlice';
+import { createCubesSlice } from './cubesSlice';
 
 export type StoreSlice<T extends object, E extends object = T> = (
   set: SetState<E extends T ? E : E & T>,
@@ -13,6 +14,7 @@ const createRootSlice = (set: SetState<any>, get: GetState<any>) => ({
   ...createMainSlice(set, get),
   ...createBlobSlice(set, get),
   ...createRipplesSlice(set, get),
+  ...createCubesSlice(set, get),
 });
 
 const useUIStore = create(subscribeWithSelector(createRootSlice));
