@@ -16,7 +16,11 @@ export const m1 = css`
 `;
 
 export const m2 = css`
-  font-size: 4.5rem;
+  font-size: 3rem;
+  line-height: 2;
+  ${media.tabletPortrait} {
+    font-size: 4.5rem;
+  }
 `;
 
 export const splash = keyframes`

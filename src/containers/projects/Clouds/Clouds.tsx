@@ -18,6 +18,10 @@ export default function Clouds(props: PageProps) {
     <>
       <Head {...head} />
       <S.ReadyWrapper shouldReveal={shouldReveal} />
+
+      <S.TitleWrapper>
+        <h1>Clouds</h1>
+      </S.TitleWrapper>
     </>
   );
 }

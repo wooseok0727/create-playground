@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { m2 } from 'utils/sharedStyled';
 
 interface ReadyWrapperProps {
   shouldReveal: boolean;
@@ -22,4 +23,20 @@ export const ReadyWrapper = styled.div<ReadyWrapperProps>`
       user-select: none;
       pointer-events: none;
     `}
+`;
+
+export const TitleWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #d008fd;
+  ${m2};
+  font-weight: bold;
+  font-family: Papyrus, sans-serif;
 `;

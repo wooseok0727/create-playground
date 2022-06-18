@@ -4,7 +4,7 @@ attribute float iRot;
 uniform float uTime;
 
 varying vec2 vUv;
-varying vec4 vPosition;
+varying vec3 vPosition;
 varying float vAlpha;
 
 mat4 rotationMatrix(vec3 axis, float angle) {
@@ -30,10 +30,14 @@ void main() {
   float depth = 5.0;
 
   vec3 newPos = position;
+
+  
   newPos = rotate(newPos, vec3(0.0, 0.0, 1.0), iRot);
   newPos += iPos;
-  newPos.z = -mod(newPos.z - uTime * 0.2, depth);
 
+  newPos.z = -mod(newPos.z - uTime * 0.2, 5.0);
+
+  vPosition = newPos;
   vAlpha = smoothstep(-5.0, -4.0, newPos.z);
 
   gl_Position = projectionMatrix * modelViewMatrix  * vec4( newPos, 1.0 );

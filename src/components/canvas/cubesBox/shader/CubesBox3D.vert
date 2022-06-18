@@ -5,7 +5,7 @@ attribute vec3 pos;
 uniform float uTime;
 
 varying vec2 vUv;
-varying vec4 vPosition;
+varying vec3 vPosition;
 varying float vDepth;
 varying float vHidden;
 
