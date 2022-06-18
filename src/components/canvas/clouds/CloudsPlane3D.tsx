@@ -45,6 +45,7 @@ export const CloudsPlane3D = () => {
 
   useIsomorphicLayoutEffect(() => {
     camera.position.set(0, 0, 900);
+    camera.lookAt(0, 0, 0);
   }, [camera.position]);
 
   return (
