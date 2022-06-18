@@ -1,4 +1,4 @@
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Stats } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useUIStore } from 'store';
 import { OCamera } from '../Camera/OCamera';
@@ -28,7 +28,7 @@ export const LCanvas = (props: Props) => {
           enabled={orbitEnabled}
         />
         {children}
-        {/* <Stats showPanel={0} /> */}
+        <Stats showPanel={0} />
       </Canvas>
     </S.CanvasWrapper>
   );

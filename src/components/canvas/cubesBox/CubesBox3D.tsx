@@ -3,7 +3,7 @@ import fragmentShader from './shader/CubesBox3D.frag';
 import { useFrame, useThree } from '@react-three/fiber';
 import useIsomorphicLayoutEffect from 'hooks/useIsomorphicLayoutEffect';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { BoxGeometry, InstancedMesh, Object3D, ShaderMaterial, Vector3 } from 'three';
+import { BoxGeometry, InstancedMesh, Object3D, ShaderMaterial } from 'three';
 import { breakpoints } from 'utils/media';
 
 const CUBE_COUNT = 20 * 2;
