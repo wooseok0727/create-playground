@@ -9,7 +9,7 @@ import { useTexture } from '@react-three/drei';
 const PLANE_COUNT = 1500;
 
 export const CloudsPlane3D = () => {
-  const { camera, gl } = useThree();
+  const { camera } = useThree();
   const mesh = useRef<Mesh<InstancedBufferGeometry, ShaderMaterial> | null>(null);
   const planeGeometry = useMemo(() => new PlaneGeometry(0.5, 0.5, 1, 1), []);
   const texture = useTexture('/images/cloud.png', () => {});
@@ -45,10 +45,7 @@ export const CloudsPlane3D = () => {
 
   useIsomorphicLayoutEffect(() => {
     camera.position.set(0, 0, 900);
-    // gl.setClearColor(0xe7e2e2, 1);
-
-    // return () => gl.setClearColor(0xffffff, 1);
-  }, [camera.position, gl]);
+  }, [camera.position]);
 
   return (
     <mesh ref={mesh} position={[0, 0, 900]}>
